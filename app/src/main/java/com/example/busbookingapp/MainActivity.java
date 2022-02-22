@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         busDatabase = AppDatabase.getInstance(MainActivity.this);
         busDao = busDatabase.getBusDao();
 
-        saveBusDetails();
+//        saveBusDetails();
 
         getBusese();
 
