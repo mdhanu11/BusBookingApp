@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".notification.LocalNotifcationPublisher" />
+            android:name="com.example.busbookingapp.notification.LocalNotifcationPublisher" />
     </application>
 
 </manifest>

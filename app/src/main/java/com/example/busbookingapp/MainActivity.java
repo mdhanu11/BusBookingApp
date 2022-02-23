@@ -183,12 +183,14 @@ public class MainActivity extends AppCompatActivity {
         for (SeatsAvailabiliy selectedSeat : selectedSeatsArray) {
             busDao.updateSeatsAfterBooked(1,selectedSeat.getId());
         }
-
+        this.recreate();
         Log.e("MainActivity", "selected time - " + calendar.getTimeInMillis());
         scheduleNotification(getNotification("Ticket Booked"),calendar.getTimeInMillis(),MainActivity.this);
     }
     private void scheduleNotification (Notification notification , long delay, Context context) {
         Intent notificationIntent = new Intent(context, LocalNotifcationPublisher.class ) ;
+        notificationIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+
         notificationIntent.putExtra(LocalNotifcationPublisher. NOTIFICATION_ID , 1 ) ;
         notificationIntent.putExtra(LocalNotifcationPublisher. NOTIFICATION , notification) ;
         PendingIntent pendingIntent = PendingIntent. getBroadcast ( context, 0 , notificationIntent , PendingIntent. FLAG_UPDATE_CURRENT ) ;
